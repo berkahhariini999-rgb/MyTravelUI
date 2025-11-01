@@ -64,3 +64,14 @@ extension MockDataService {
                     ]
     }
 }
+
+extension MockDataService {
+    func getPreviewImages() -> [Preview] {
+        [
+            .init(image: .preview_image_1),
+            .init(image: .preview_image_2),
+            .init(image: .preview_image_3),
+            .init(image: .preview_image_4)
+        ]
+    }
+}

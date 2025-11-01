@@ -67,6 +67,18 @@ extension Image {
         Image("preview_image_1")
     }
     
+    static var preview_image_2:Image {
+        Image("preview_image_2")
+    }
+    
+    static var preview_image_3:Image {
+        Image("preview_image_3")
+    }
+    
+    static var preview_image_4:Image {
+        Image("preview_image_4")
+    }
+    
     
     
     
