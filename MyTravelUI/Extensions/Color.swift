@@ -16,4 +16,12 @@ extension Color {
         Color("AppGrayColor")
     }
     
+    static var BlackWhite: Color {
+        Color("BlackWhite")
+    }
+    
+    static var WhiteBlack: Color {
+        Color("WhiteBlack")
+    }
+    
 }

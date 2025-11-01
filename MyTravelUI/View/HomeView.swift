@@ -9,6 +9,9 @@ import SwiftUI
 
 struct HomeView : View {
     var body: some View {
+        ScrollView {
+            
+     
         VStack (alignment: .leading) {
           headerView
             
@@ -17,12 +20,18 @@ struct HomeView : View {
             
             categoryContent
             popularRow
+                .padding(.top, 20)
             
-      
-            Spacer()
+            ForEach(MockDataService.instance.getPopularDestination(),id: \.title){
+                destination in
+                PopularDestinationView(destination: destination)
+            }
+           // Spacer()
            
         }
+        
         .padding()
+        }
     }
 }
 
