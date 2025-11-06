@@ -12,17 +12,16 @@ struct DetailView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        GeometryReader {
-            reader in
+        GeometryReader { reader in
             VStack (alignment: .leading, spacing: 0) {
                 destination.image
                     .resizable()
                     .scaledToFill()
                     .frame(height: reader.size.height * 0.5)
-                    .frame(maxWidth: .infinity)
+                    .frame(width: reader.size.width)
                 
                 ScrollView {
-                    VStack {
+                    VStack (alignment: .leading) {
                         HStack {
                             VStack {
                                 Text (destination.title)
@@ -57,7 +56,7 @@ struct DetailView: View {
                                 Color.appGrayColor
                             )
                         }
-                        ScrollView{
+                        ScrollView (.horizontal, showsIndicators: false){
                             HStack {
                                 ForEach(MockDataService.instance.getPreviewImages()) { preview in
                                     preview.image
@@ -73,13 +72,12 @@ struct DetailView: View {
                             
                         } label : {
                             Text("Book Now")
+                                .foregroundStyle(Color.white)
                                 .padding()
                                 .frame(maxWidth: .infinity)
                                 .background(Color.appBlueColor)
                                 .cornerRadius(8)
                         }
-                        
-                    //    Spacer()
                     }
                 }
                 .padding()
@@ -89,7 +87,7 @@ struct DetailView: View {
                     RoundedRectangle(cornerRadius: 12)
                         .fill(Color.whiteBlack)
                 )
-                .offset(y: -20)
+                .offset(y: -40)
             }
             .ignoresSafeArea()
             .overlay(alignment: .top) {
@@ -112,10 +110,8 @@ struct DetailView: View {
                                 .fill(Color.appGrayColor)
                         )
                 }
+                .padding()
             }
-            .padding()
-            
-            
         }
       
     }
@@ -123,6 +119,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(destination: MockDataService.instance.getPopularDestination()[0])
+        DetailView(destination: MockDataService.instance.getPopularDestination()[2])
     }
 }

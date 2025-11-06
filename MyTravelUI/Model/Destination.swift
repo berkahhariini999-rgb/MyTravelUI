@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct Destination {
+struct Destination: Identifiable {
+    let id = UUID().uuidString
     let title: String
     let location: String
     let description: String

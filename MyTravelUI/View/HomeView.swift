@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView : View {
+    @State private var selectedPlace : Destination? = nil
+    
     var body: some View {
         ScrollView {
             
@@ -25,12 +27,18 @@ struct HomeView : View {
             ForEach(MockDataService.instance.getPopularDestination(),id: \.title){
                 destination in
                 PopularDestinationView(destination: destination)
+                    .onTapGesture {
+                        selectedPlace = destination
+                    }
             }
-           // Spacer()
            
         }
         
         .padding()
+        .fullScreenCover(item: $selectedPlace) { destination in
+            DetailView(destination: destination)
+            
+         }
         }
     }
 }
@@ -100,6 +108,9 @@ private extension HomeView {
                     ForEach(MockDataService.instance.getMountains(), id:\.title){
                         mountain in
                         MountainCardView(mountain: mountain)
+                            .onTapGesture {
+                                selectedPlace = mountain
+                            }
                     }
                 }
             }

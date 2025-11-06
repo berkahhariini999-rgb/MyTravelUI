@@ -54,6 +54,12 @@ extension MockDataService {
                                 description: "A meru tower or pelinggih meru is the principal shrine of Balinese",
                                 amount: "$36",
                     image: .tower_image_1),
+         
+        .init(title: "Rinjani Mountain",
+                          location: "",
+                          description: "Beautiful mountain with beautiful view",
+                          amount: "$35",
+              image: .mountain_image_2),
                     
                     .init(title: "Toraja Land",
                                   location: "South Sulawesi, Indonesia",
